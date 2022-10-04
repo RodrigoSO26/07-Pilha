@@ -59,7 +59,7 @@ void menu()
 void inicializar()
 {
 
-	// se a lista j· possuir elementos
+	// se a lista j√° possuir elementos
 	// libera a memoria ocupada
 	NO* aux = topo;
 	while (aux != NULL) {
@@ -86,14 +86,32 @@ void push()
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
 	novo->prox = NULL;
+	if (topo == NULL) {
+		topo = novo;
+	}
+	else {
+		NO* aux = topo;
+		aux->prox = topo;
+		topo = aux;
+		cout << "Numero inserido na pilha \n";
+	}
 
 
 }
 
 void pop()
 {
+	if (topo == NULL) {
+		cout << "Pilha vazia!" << endl;
+	}
 
-	
+	else {
+		NO* aux = topo;
+		cout << "Elemento removido: " << topo->valor << endl;
+		topo = topo->prox;
+		free(aux);
+	}
+
 
 }
 
